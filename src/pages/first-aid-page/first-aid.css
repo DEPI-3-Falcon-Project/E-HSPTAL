@@ -1,0 +1,18 @@
+/* First Aid specific styles */
+.first-aid-container {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  background-color: white;
+}
+
+/* Animation classes that reference the keyframes defined in index.css */
+.first-aid-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.first-aid-modal-fade {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+
+
