@@ -1,0 +1,732 @@
+/* Emergency Loading Screen Animations */
+
+.heartbeat-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.heart {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #ff4757;
+  transform: rotate(45deg);
+  animation: heartbeat 1.5s ease-in-out infinite;
+  top: 30px;
+  left: 30px;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #ff4757;
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -30px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: -30px;
+}
+
+.heart-pulse {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ff4757;
+  border-radius: 50%;
+  top: 30px;
+  left: 30px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.heart-pulse-2 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ff4757;
+  border-radius: 50%;
+  top: 30px;
+  left: 30px;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes heartbeat {
+  0%, 100% { 
+    transform: rotate(45deg) scale(1); 
+  }
+  50% { 
+    transform: rotate(45deg) scale(1.1); 
+  }
+}
+
+@keyframes pulse {
+  0% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: scale(2); 
+    opacity: 0; 
+  }
+}
+
+.pulse-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-line {
+  width: 4px;
+  height: 40px;
+  background: #ff4757;
+  border-radius: 2px;
+  animation: pulseLine 1.2s ease-in-out infinite;
+}
+
+.pulse-line:nth-child(2) { animation-delay: 0.2s; }
+.pulse-line:nth-child(3) { animation-delay: 0.4s; }
+.pulse-line:nth-child(4) { animation-delay: 0.6s; }
+.pulse-line:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes pulseLine {
+  0%, 100% { 
+    height: 20px; 
+    opacity: 0.5; 
+  }
+  50% { 
+    height: 60px; 
+    opacity: 1; 
+  }
+}
+
+.progress-bar {
+  width: 0%;
+  animation: progress 8s ease-in-out forwards;
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.checkmark-container {
+  animation: fadeInScale 0.5s ease-out;
+}
+
+.checkmark {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.checkmark-stem {
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background: #2ed573;
+  transform: rotate(45deg);
+  left: 28px;
+  top: 10px;
+  animation: checkmarkStem 0.3s ease-out 0.2s both;
+}
+
+.checkmark-kick {
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  background: #2ed573;
+  transform: rotate(-45deg);
+  left: 20px;
+  top: 25px;
+  animation: checkmarkKick 0.3s ease-out 0.5s both;
+}
+
+@keyframes checkmarkStem {
+  0% { height: 0; }
+  100% { height: 30px; }
+}
+
+@keyframes checkmarkKick {
+  0% { width: 0; }
+  100% { width: 20px; }
+}
+
+@keyframes fadeInScale {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.5); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+.emergency-icon {
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.emergency-icon:nth-child(2) { animation-delay: 0.3s; }
+.emergency-icon:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* تأثيرات 3D للصور */
+.floating-image-3d {
+  animation: float3D 3s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  margin-top: 80px;
+}
+
+.floating-image-3d img {
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  max-height: 400px;
+}
+
+.floating-image-3d:hover img {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+}
+
+/* تأثيرات 3D خاصة للصورة الكبيرة */
+.floating-image-3d .relative {
+  transition: transform 0.3s ease;
+}
+
+.floating-image-3d:hover .relative {
+  transform: rotateY(5deg) rotateX(2deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes float3D {
+  0%, 100% { 
+    transform: translateY(0px) rotateY(0deg); 
+  }
+  25% { 
+    transform: translateY(-8px) rotateY(3deg); 
+  }
+  50% { 
+    transform: translateY(-4px) rotateY(0deg); 
+  }
+  75% { 
+    transform: translateY(-10px) rotateY(-3deg); 
+  }
+}
+
+/* تأثيرات 3D للأيقونات */
+.emergency-icon-3d {
+  animation: float3D 3s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.emergency-icon-3d:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Loading Screen Background */
+.emergency-loading-bg {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Medical Section Cards */
+.medical-section-card {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.medical-section-card:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(239, 68, 68, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.2);
+}
+
+.medical-section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.medical-section-card:hover::before {
+  left: 100%;
+}
+
+.medical-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-radius: 50%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.medical-section-card:hover .medical-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.medical-section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.medical-section-card:hover .medical-section-content {
+  max-height: 200px;
+}
+
+/* Medical Sidebar */
+.medical-sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 0 15px 15px 0;
+  padding: 20px 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.medical-sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.medical-sidebar-item:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+}
+
+.medical-sidebar-item:hover .medical-sidebar-text {
+  color: white;
+}
+
+.medical-sidebar-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.medical-sidebar-item:hover::before {
+  left: 100%;
+}
+
+.medical-sidebar-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  color: white;
+}
+
+.medical-sidebar-item:hover .medical-sidebar-icon {
+  background: white;
+  color: #ef4444;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.medical-sidebar-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Floating Sidebar */
+.floating-sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 2px solid rgba(239, 68, 68, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.floating-sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 12px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+
+.floating-sidebar-item:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transform: translateX(-8px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+}
+
+.floating-sidebar-item:hover .floating-sidebar-text {
+  color: white;
+}
+
+.floating-sidebar-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.floating-sidebar-item:hover::before {
+  left: 100%;
+}
+
+.floating-sidebar-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-radius: 50%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.floating-sidebar-item:hover .floating-sidebar-icon {
+  background: white;
+  color: #ef4444;
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.floating-sidebar-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Medical Loading Screen Animations */
+.heartbeat-pulse {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.pulse-ring {
+  position: absolute;
+  border: 2px solid #ef4444;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: pulseRing 2s ease-out infinite;
+}
+
+.pulse-ring.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.pulse-ring.delay-2 {
+  animation-delay: 1s;
+}
+
+.success-checkmark {
+  animation: checkmarkDraw 0.8s ease-out forwards;
+}
+
+@keyframes heartbeat {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.1); 
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes checkmarkDraw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Medical Location Detector Animations */
+.heartbeat-pulse {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.pulse-ring {
+  position: absolute;
+  border: 2px solid #dc2626;
+  border-radius: 50%;
+  animation: pulseRing 2s ease-out infinite;
+}
+
+.pulse-ring.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.pulse-ring.delay-2 {
+  animation-delay: 1s;
+}
+
+/* Compact Loading Screen Animations */
+.pulse-ring-small {
+  position: absolute;
+  border: 2px solid #ef4444;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: pulseRingSmall 2s ease-out infinite;
+}
+
+.pulse-ring-small.delay-1 {
+  animation-delay: 0.5s;
+}
+
+@keyframes pulseRingSmall {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Expandable Sidebar */
+.expandable-sidebar {
+  background: transparent;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: visible;
+  width: 60px;
+}
+
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: none;
+  width: 60px;
+  min-height: 50px;
+  border-radius: 0 15px 15px 0;
+}
+
+.sidebar-item:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+  width: 200px;
+}
+
+.sidebar-item:hover .sidebar-title,
+.sidebar-item:hover .sidebar-description {
+  color: white;
+}
+
+.sidebar-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.sidebar-item:hover::before {
+  left: 100%;
+}
+
+.sidebar-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  color: white;
+  position: relative;
+  z-index: 1;
+  min-width: 40px;
+  min-height: 40px;
+  flex-shrink: 0;
+}
+
+.sidebar-item:hover .sidebar-icon {
+  background: white;
+  color: #ef4444;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar-item:hover .sidebar-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.sidebar-description {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.emergency-loading-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,111 @@
+.heartbeat-container {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heartbeat-line {
+  position: relative;
+  z-index: 2;
+}
+
+.heartbeat-path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawPath 5s ease-in-out infinite;
+}
+
+.heartbeat-pulse {
+  stroke-dasharray: 25 15;
+  animation: pulse 2.5s linear infinite;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.heartbeat-dot {
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.heartbeat-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(239, 68, 68, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 68, 68, 0.1) 1px, transparent 1px);
+  background-size: 20px 10px;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+/* رسم المسار */
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 2000;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -2000;
+    opacity: 0;
+  }
+}
+
+/* تأثير النبضة */
+@keyframes pulse {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -30;
+    opacity: 0.8;
+  }
+}
+
+/* تأثيرات إضافية للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .heartbeat-container {
+    height: 40px;
+  }
+  
+  .heartbeat-path,
+  .heartbeat-pulse {
+    stroke-width: 2;
+  }
+  
+  .heartbeat-dot {
+    r: 3;
+  }
+}
+
+/* تأثير التوهج */
+.heartbeat-container:hover .heartbeat-pulse {
+  filter: drop-shadow(0 0 15px currentColor);
+  animation-duration: 2s;
+}
+
+.heartbeat-container:hover .heartbeat-dot {
+  filter: drop-shadow(0 0 12px currentColor);
+}
+
+.heartbeat-container:hover .heartbeat-path {
+  animation-duration: 4s;
+}

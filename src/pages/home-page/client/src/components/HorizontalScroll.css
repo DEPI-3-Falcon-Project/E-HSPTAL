@@ -1,0 +1,21 @@
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* تحسين التمرير على الموبايل */
+@media (max-width: 768px) {
+  .scrollbar-hide {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scrollbar-hide > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}

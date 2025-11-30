@@ -1,0 +1,26 @@
+@keyframes progress-countdown {
+  from { 
+    width: 100%; 
+  }
+  to { 
+    width: 0%; 
+  }
+}
+
+.animate-progress-countdown {
+  animation-name: progress-countdown;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
